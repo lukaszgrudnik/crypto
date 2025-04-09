@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    // Specifies the target ECMAScript version for the compiled code.
+    // ES6 allows using modern JavaScript features like arrow functions, classes, etc.
+    "target": "ESNext",
+    // Specifies the module code generation method. ESNext is used for the latest ES module system.
+    // This is useful for projects using modern JavaScript module syntax.
+    "module": "ESNext",
+    // Enables all strict type-checking options. This makes the compiler more strict with type checking.
+    // It helps catch potential errors earlier in the development process.
+    "strict": true,
+    // Allows compatibility with CommonJS modules. If set to true, the compiler will use "require" and "module.exports" for modules.
+    // With "false", it forces ES6 import/export syntax.
+    "esModuleInterop": false,
+    // Skips type-checking of declaration files (.d.ts).
+    // This can speed up the build process, especially in large projects where library type declarations are trusted.
+    "skipLibCheck": true
+  }
+}
