@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app1:
+    build: ./shell
+    ports:
+      - "8080:80"  # Expose app1 on localhost:8081
+    container_name: app-shell
+
+  app2:
+    build: ./apps/wallet
+    ports:
+      - "8081:80"  # Expose app2 on localhost:8082
+    container_name: app-wallet
+
+  app3:
+    build: ./apps/market
+    ports:
+      - "8082:80"  # Expose app3 on localhost:8083
+    container_name: app-market
