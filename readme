@@ -1,0 +1,20 @@
+
+Build apps:
+
+```shell
+npm run build-shell
+```
+
+```shell
+npm run build-market
+```
+
+```shell
+npm run build-wallet
+```
+
+Run docker:
+
+```shell
+docker-compose up --build
+```
