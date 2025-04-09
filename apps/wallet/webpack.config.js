@@ -4,7 +4,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     mode: "development",
-    entry: path.resolve(__dirname, './src/index.ts'),
+    entry: path.resolve(__dirname, './src/index.tsx'),
     output: {
         path: path.resolve(__dirname, './dist'),
     },
@@ -16,7 +16,7 @@ module.exports = {
         // to the dependency graph.
         rules: [
             {
-                test: /\.ts$/,
+                test: /\.(ts|tsx)$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
             }
@@ -24,7 +24,7 @@ module.exports = {
     },
     // Controls how Webpack finds files when you import them in your code
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js', '.tsx']
     },
     plugins: [
         new HtmlWebpackPlugin(),
@@ -32,7 +32,7 @@ module.exports = {
             name: 'walletApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './Wallet': path.resolve(__dirname, './src/wallet.ts'),
+                './Wallet': path.resolve(__dirname, './src/wallet.tsx'),
             }
         })
     ],

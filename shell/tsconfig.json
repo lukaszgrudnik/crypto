@@ -1,19 +1,33 @@
 {
   "compilerOptions": {
+    // Determines how modules are resolved.
+    // 'nodenext' allows using both CommonJS and ES modules,
+    // supporting Node.js-style resolution with .js, .ts, .mts, .cts extensions.
+    "moduleResolution": "nodenext",
+
+    // Specifies the JSX code generation mode.
+    // 'react' generates code compatible with older React (pre-17), using React.createElement.
+    // Use 'react-jsx' or 'react-jsxdev' for React 17+ with the new JSX transform.
+    "jsx": "react-jsx",
+
     // Specifies the target ECMAScript version for the compiled code.
-    // ES6 allows using modern JavaScript features like arrow functions, classes, etc.
+    // ESNext allows using the latest JavaScript features like optional chaining, nullish coalescing, etc.
     "target": "ESNext",
-    // Specifies the module code generation method. ESNext is used for the latest ES module system.
-    // This is useful for projects using modern JavaScript module syntax.
-    "module": "ESNext",
-    // Enables all strict type-checking options. This makes the compiler more strict with type checking.
-    // It helps catch potential errors earlier in the development process.
+
+    // Specifies the module code generation method.
+    // ESNext supports the latest ES module syntax (import/export).
+    "module": "NodeNext",
+
+    // Enables all strict type-checking options.
+    // Helps catch potential bugs by enforcing type safety.
     "strict": true,
-    // Allows compatibility with CommonJS modules. If set to true, the compiler will use "require" and "module.exports" for modules.
-    // With "false", it forces ES6 import/export syntax.
+
+    // Allows default imports from modules with no default export.
+    // Ensures compatibility with CommonJS modules.
     "esModuleInterop": true,
-    // Skips type-checking of declaration files (.d.ts).
-    // This can speed up the build process, especially in large projects where library type declarations are trusted.
+
+    // Skips type checking of declaration files (*.d.ts).
+    // Speeds up builds by trusting external types.
     "skipLibCheck": true
   }
 }

@@ -8,6 +8,8 @@
     "build-market": "npx webpack  --config ./apps/market/webpack.config.js"
   },
   "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "sass": "^1.86.3",
@@ -17,5 +19,9 @@
     "webpack": "^5.99.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
