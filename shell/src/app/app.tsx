@@ -1,6 +1,9 @@
 import React, { lazy, Suspense, useState } from 'react';
 import './app.scss';
 import { Nav } from './nav/nav';
+import { Provider } from 'react-redux';
+import store from './store';
+import { Counter } from './counter/counter';
 
 // @ts-ignore
 const WalletApp = lazy(() => import('walletApp/Wallet'));
@@ -19,6 +22,7 @@ const App: React.FC = () => {
     <div className="app">
       <Nav select={setNav} />
       <div className="content">
+        <Counter />
         <Suspense fallback={null}>
           {views[nav] || <div>Did not found</div>}
         </Suspense>
@@ -27,4 +31,10 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+const Root = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default Root;
