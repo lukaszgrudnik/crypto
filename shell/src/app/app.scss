@@ -3,14 +3,6 @@
   display: grid;
   grid-template-rows: max-content auto;
 
-  .navigation {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0 0 .2rem 0 rgba(0,0,0,0.2);
-  }
-
   .content {
     height: 100%;
   }

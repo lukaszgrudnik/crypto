@@ -1,5 +1,6 @@
-import React, {lazy, Suspense, useState} from 'react';
-import "./app.scss"
+import React, { lazy, Suspense, useState } from 'react';
+import './app.scss';
+import { Nav } from './nav/nav';
 
 // @ts-ignore
 const WalletApp = lazy(() => import('walletApp/Wallet'));
@@ -7,29 +8,23 @@ const WalletApp = lazy(() => import('walletApp/Wallet'));
 const MarketApp = lazy(() => import('marketApp/Market'));
 
 const App: React.FC = () => {
+  const [nav, setNav] = useState('wallet');
 
-    const [nav, setNav] = useState('wallet');
+  const views: Record<string, React.ReactNode> = {
+    wallet: <WalletApp />,
+    market: <MarketApp />,
+  };
 
-    const onNavButtonClick = (value: string) => setNav(value);
-
-    const views: Record<string, React.ReactNode> = {
-        wallet: <WalletApp />,
-        market: <MarketApp />,
-    };
-
-    return (
-        <div className="app">
-            <div className="navigation">
-                <button onClick={()=> onNavButtonClick('wallet')}>Wallet</button>
-                <button onClick={()=> onNavButtonClick('market')}>Market</button>
-            </div>
-            <div className="content">
-                <Suspense fallback={null}>
-                    {views[nav] || <div>Did not found</div>}
-                </Suspense>
-            </div>
-        </div>
-    );
+  return (
+    <div className="app">
+      <Nav select={setNav} />
+      <div className="content">
+        <Suspense fallback={null}>
+          {views[nav] || <div>Did not found</div>}
+        </Suspense>
+      </div>
+    </div>
+  );
 };
 
 export default App;
