@@ -2,7 +2,6 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import './app.scss';
 import { Nav } from './nav/nav';
 import { Provider } from 'react-redux';
-import { Counter } from './counter/counter';
 import store from './store';
 
 // @ts-ignore
@@ -22,7 +21,6 @@ const App: React.FC = () => {
     <div className="app">
       <Nav select={setNav} />
       <div className="content">
-        <Counter />
         <Suspense fallback={null}>
           {views[nav] || <div>Did not found</div>}
         </Suspense>
