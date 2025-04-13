@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Wallet from '../../wallet/src/wallet';
+import Root from './app/app';
 
 const rootElement = document.createElement('div');
 rootElement.setAttribute('id', 'root');
 document.body.appendChild(rootElement);
 
 const root = ReactDOM.createRoot(rootElement);
-root.render(<Wallet></Wallet>);
+root.render(<Root></Root>);

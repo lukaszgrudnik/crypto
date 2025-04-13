@@ -1,9 +1,9 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import './app.scss';
 import { Nav } from './nav/nav';
 import { Provider } from 'react-redux';
-import store from './store';
 import { Counter } from './counter/counter';
+import store from './store';
 
 // @ts-ignore
 const WalletApp = lazy(() => import('walletApp/Wallet'));
@@ -31,10 +31,12 @@ const App: React.FC = () => {
   );
 };
 
-const Root = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
+const Root = () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
 
 export default Root;

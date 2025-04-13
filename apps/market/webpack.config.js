@@ -21,6 +21,17 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
     ],
   },
   // Controls how Webpack finds files when you import them in your code
@@ -33,7 +44,13 @@ module.exports = {
       name: 'marketApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './Market': path.resolve(__dirname, './src/market/market.tsx'),
+        './Market': path.resolve(__dirname, './src/app/market/market.tsx'),
+        './Store': path.resolve(__dirname, './src/app/store/store.ts'),
+      },
+      shared: {
+        react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
+        'react-redux': { singleton: true, eager: true },
       },
     }),
   ],

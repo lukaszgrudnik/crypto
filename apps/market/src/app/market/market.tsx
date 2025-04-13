@@ -3,7 +3,7 @@ import { List } from './list/list';
 
 const Market: React.FC = () => {
   return (
-    <div className="app">
+    <div className="market">
       <List />
     </div>
   );

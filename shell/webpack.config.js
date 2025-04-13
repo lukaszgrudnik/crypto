@@ -6,7 +6,8 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].bundle.js', // Generates [name].[contenthash].bundle.js
   },
   // module is any file that Webpack processes (e.g., .js, .ts, .css).
   module: {
@@ -44,6 +45,11 @@ module.exports = {
       remotes: {
         walletApp: 'walletApp@http://localhost:8081/remoteEntry.js',
         marketApp: 'marketApp@http://localhost:8082/remoteEntry.js',
+      },
+      shared: {
+        react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
+        'react-redux': { singleton: true, eager: true },
       },
     }),
   ],

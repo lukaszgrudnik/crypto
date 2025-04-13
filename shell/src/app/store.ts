@@ -1,9 +1,12 @@
 import {
+  combineReducers,
   configureStore,
   createAction,
   createReducer,
   PayloadAction,
 } from '@reduxjs/toolkit';
+import market from '../../../apps/market/src/app/market/market';
+import { assetsReducer } from '../../../apps/market/src/app/store/store';
 
 // Define an action to increment or decrement the counter
 export const increment = createAction<number>('counter/increment');
@@ -25,11 +28,18 @@ const counterReducer = createReducer(initialState, (builder) => {
     );
 });
 
-// Create the Redux store
+let shellReducers: any = {
+  counter: counterReducer,
+};
+
 const store = configureStore({
-  reducer: {
-    counter: counterReducer, // Add the counterReducer under 'counter'
-  },
+  reducer: shellReducers,
+});
+
+// @ts-ignore
+import('marketApp/Store').then((market) => {
+  shellReducers = { ...shellReducers, assets: market.assetsReducer };
+  store.replaceReducer(combineReducers(shellReducers));
 });
 
 export default store;

@@ -28,6 +28,7 @@
 
     // Skips type checking of declaration files (*.d.ts).
     // Speeds up builds by trusting external types.
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+  },
+
 }
