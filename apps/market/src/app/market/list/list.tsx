@@ -13,12 +13,8 @@ export const List: React.FC = () => {
   return (
     <div className="list">
       <div>
-        <p>added</p>
-        {crypto?.map((item) => <Tile cryptoInfo={item} />)}
-      </div>
-      <div>
-        {cryptoList.map((item) => (
-          <Tile cryptoInfo={item} />
+        {cryptoList.map((item, index) => (
+          <Tile key={index} cryptoInfo={item} />
         ))}
       </div>
     </div>

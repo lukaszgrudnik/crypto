@@ -1,0 +1,16 @@
+.crypto-tile {
+  width: 300px;
+  height: max-content;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto min-content;
+
+  p {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .amount {
+    font-size: 0.6rem;
+  }
+}

@@ -11,7 +11,7 @@ export const assetsInitialState: Assets = {
   crypto: [],
 };
 
-export const addCrypto = createAction<Crypto>('assets/crypto/add');
+export const addCrypto = createAction<Crypto>('assets/crypto-tile/add');
 
 export const assetsReducer = createReducer(assetsInitialState, (builder) => {
   builder.addCase(addCrypto, (state, action: PayloadAction<Crypto>) => {

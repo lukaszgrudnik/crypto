@@ -8,10 +8,18 @@ import { Assets } from './assets';
 import { Crypto } from './crypto';
 
 const assetsInitialState: Assets = {
-  crypto: [],
+  crypto: [
+    {
+      rank: 1,
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      price_usd: 87873.8,
+      changeIn24h: 3.4,
+    },
+  ],
 };
 
-export const addCrypto = createAction<Crypto>('assets/crypto/add');
+export const addCrypto = createAction<Crypto>('assets/crypto-tile/add');
 
 export const assetsReducer = createReducer(assetsInitialState, (builder) => {
   builder.addCase(addCrypto, (state, action: PayloadAction<Crypto>) => {
