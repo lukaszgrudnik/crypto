@@ -21,9 +21,11 @@ const App: React.FC = () => {
     <div className="app">
       <Nav select={setNav} />
       <div className="content">
-        <Suspense fallback={null}>
-          {views[nav] || <div>Did not found</div>}
-        </Suspense>
+        <div>
+          <Suspense fallback={null}>
+            {views[nav] || <div>Did not found</div>}
+          </Suspense>
+        </div>
       </div>
     </div>
   );

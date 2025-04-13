@@ -4,4 +4,5 @@ export interface CryptoInfo {
   symbol: string;
   price_usd: number;
   changeIn24h: number;
+  svg: string;
 }
