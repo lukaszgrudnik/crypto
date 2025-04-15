@@ -1,22 +1,35 @@
-import React from 'react';
-import { cryptoList } from './api/crypto-list';
+import React, { useEffect, useState } from 'react';
 import { Tile } from './tile/tile';
 import { useSelector } from 'react-redux';
 import './list.scss';
-import { Crypto } from '../../store/crypto';
+import { Crypto, getCryptoList } from '../market-api';
+import { Card } from '@mui/material';
 
-export const List: React.FC = () => {
-  const crypto = useSelector(
-    (state: { assets: { crypto: Crypto[] } }) => state?.assets?.crypto
-  );
+export const List: React.FC<{ onClick: (name: Crypto) => void }> = ({
+  onClick,
+}) => {
+  const [cryptoList, setCryptoList] = useState<Crypto[]>([]);
+
+  useEffect(() => {
+    getCrypto();
+  }, []);
+
+  const getCrypto = () => {
+    getCryptoList()
+      .then((value) => {
+        setCryptoList(value);
+      })
+      .catch(() => {});
+    console.error('Error getCryptoList');
+  };
 
   return (
     <div className="list">
-      <div>
-        {cryptoList.map((item, index) => (
+      {cryptoList.map((item, index) => (
+        <Card className="card" onClick={() => onClick(item)}>
           <Tile key={index} cryptoInfo={item} />
-        ))}
-      </div>
+        </Card>
+      ))}
     </div>
   );
 };

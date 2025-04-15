@@ -1,25 +1,19 @@
 import React from 'react';
-import { CryptoInfo } from '../api/crypto';
-import { useDispatch, useSelector } from 'react-redux';
-import { addCrypto } from '../../../store/store';
+
 import './tile.scss';
+import { Crypto } from '../../market-api';
 
-export const Tile: React.FC<{ cryptoInfo: CryptoInfo }> = ({ cryptoInfo }) => {
-  const dispatch = useDispatch();
-
+export const Tile: React.FC<{ cryptoInfo: Crypto }> = ({ cryptoInfo }) => {
   return (
     <div className="tile">
-      <div
-        className="crypto-icon"
-        dangerouslySetInnerHTML={{ __html: cryptoInfo.svg }}
-      />
+      <img src={cryptoInfo.image} width={24} height={24} alt="Crypto Icon" />
       <div>
         <p>{cryptoInfo.name}</p>
         <p>{cryptoInfo.symbol}</p>
       </div>
       <div>
-        <p>${cryptoInfo.price_usd}</p>
-        <p>{cryptoInfo.changeIn24h}%</p>
+        <p>${cryptoInfo.current_price}</p>
+        <p>{cryptoInfo.price_change_24h}%</p>
       </div>
     </div>
   );
