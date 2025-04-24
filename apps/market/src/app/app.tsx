@@ -1,5 +1,5 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const App: React.FC = () => {
-    return(<div>Market</div>)
-}
+  return <div>Market</div>;
+};
