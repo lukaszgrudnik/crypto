@@ -6,5 +6,6 @@ module.exports = merge(webpackBaseConfig, {
   devServer: {
     port: ports.wallet,
     liveReload: true,
+    historyApiFallback: true,
   },
 });
