@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "es2022", // Will use ES2022 modules
+    "moduleResolution": "bundler",
+    "target": "es2022", // Code will be compiled to ES 2022
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist",
+  }
+}
