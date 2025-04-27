@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <% if (htmlWebpackPlugin.options.links > 0) { %>
+  <% for (var link in htmlWebpackPlugin.options.links) { %>
+  <link rel="<%= link.rel%>" href="<%= link.href%>">
+  <% } %>
+  <% } %>
+</head>
+<body></body>
+</html>

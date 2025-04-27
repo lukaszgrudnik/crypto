@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { CoinsList } from './coins-list/coins-list';
-import { CoinsDetails } from './coins-details/coins-details';
+import { CoinDetails } from './coin-details/coin-details';
 import './market.scss';
+import { useState } from 'react';
+import { Coin } from '../models/coin-gecko/coin';
 
 export const Market: React.FC = () => {
+  const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
+
   return (
     <div className="market">
       <div className="market_coins-list">
-        <CoinsList />
+        <CoinsList selectCoin={setSelectedCoin} />
       </div>
       <div>
-        <CoinsDetails />
+        {selectedCoin ? <CoinDetails coin={selectedCoin} /> : <div></div>}
       </div>
     </div>
   );

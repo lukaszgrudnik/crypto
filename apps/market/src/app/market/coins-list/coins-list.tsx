@@ -3,7 +3,9 @@ import { Coin } from '../../models/coin-gecko/coin';
 import { getCoinsList } from '../../api/coin-gecko/coin-gecko-api';
 import './coins-list.scss';
 
-export const CoinsList: React.FC = () => {
+export const CoinsList: React.FC<{
+  selectCoin: (coin: Coin | null) => void;
+}> = ({ selectCoin }) => {
   const [coinsList, setCoinsList] = React.useState<Coin[]>([]);
 
   useEffect(() => {
@@ -14,6 +16,7 @@ export const CoinsList: React.FC = () => {
     getCoinsList()
       .then((coins) => {
         setCoinsList(coins);
+        selectCoin(coins[0]);
       })
       .catch(() => {});
   };
@@ -21,7 +24,11 @@ export const CoinsList: React.FC = () => {
   return (
     <ul className={'coins-list'}>
       {coinsList?.map((coin, index) => (
-        <li key={index} className="coins-list_coin">
+        <li
+          onClick={() => selectCoin(coin)}
+          key={index}
+          className="coins-list_coin"
+        >
           <img
             className="coins-list_coin_image"
             src={coin.image}
