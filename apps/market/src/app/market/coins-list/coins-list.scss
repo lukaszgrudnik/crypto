@@ -1,0 +1,68 @@
+.coins-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1rem;
+  margin: 0;
+
+  &_coin {
+    display: grid;
+    grid-template-areas:
+    "image symbol . price"
+    "image name . priceChange"
+  ;
+
+    grid-template-columns: 25px min-content auto min-content;
+    align-items: center;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.1rem;
+
+    p {
+      margin: 0;
+    }
+
+    &_image {
+      grid-area: image;
+    }
+
+    &_symbol {
+      text-transform: uppercase;
+      grid-area: symbol;
+      font-size: .9rem;
+    }
+
+    &_price {
+      justify-self: end;
+      grid-area: price;
+      font-size: .9rem;
+    }
+
+    &_name {
+      text-transform: capitalize;
+      grid-area: name;
+      color: gray;
+      font-size: .8rem;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &_price-change {
+      justify-self: end;
+      grid-area: priceChange;
+      font-size: .8rem;
+
+      &_increased {
+        color: green;
+      }
+
+      &_decreased {
+        color: red;
+      }
+
+    }
+  }
+
+}

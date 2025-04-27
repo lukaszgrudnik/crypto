@@ -3,12 +3,14 @@ import { NavLink, Outlet } from 'react-router';
 
 export const App: React.FC = () => {
   return (
-    <div>
+    <div className="app">
       <nav>
         <NavLink to="wallet">Wallet</NavLink>
         <NavLink to="market">Market</NavLink>
       </nav>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };
