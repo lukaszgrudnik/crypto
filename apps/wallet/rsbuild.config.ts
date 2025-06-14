@@ -10,10 +10,9 @@ export default defineConfig({
         pluginReact(),
         pluginSass(),
         pluginModuleFederation({
-            name: 'shell',
-            remotes: {
-                market: `market@http://localhost:${ports.market}/mf-manifest.json`,
-                wallet: `wallet@http://localhost:${ports.wallet}/mf-manifest.json`,
+            name: 'wallet',
+            exposes: {
+                './Wallet': `./src/app/wallet/wallet.tsx`,
             },
             shared: {
                 react: {
@@ -28,6 +27,6 @@ export default defineConfig({
         }),
     ],
     server: {
-        port: ports.shell,
+        port: ports.wallet,
     },
 });
