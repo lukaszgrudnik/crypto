@@ -27,7 +27,9 @@ export default defineConfig({
             },
         }),
     ],
+
     server: {
         port: ports.shell,
+        htmlFallback: 'index',
     },
 });

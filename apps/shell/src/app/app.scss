@@ -1,0 +1,43 @@
+.app {
+
+  &__nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.5rem 4rem;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    &__sub-nav {
+
+      display: flex;
+      gap: 3rem;
+
+      &__link {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.7);
+
+        &.active {
+          color: white;
+        }
+
+        &:hover {
+          color: white;
+          transition: color .5s ease;
+        }
+      }
+    }
+
+    button {
+      color: black;
+      font-size: 0.9rem;
+    }
+  }
+
+  main {
+    padding: 2rem 8rem;
+  }
+}

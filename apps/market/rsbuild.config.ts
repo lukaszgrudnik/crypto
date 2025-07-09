@@ -28,5 +28,6 @@ export default defineConfig({
     ],
     server: {
         port: ports.market,
+        htmlFallback: 'index',
     },
 });
