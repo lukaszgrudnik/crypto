@@ -1,5 +1,9 @@
 .app {
 
+  display: grid;
+  grid-template-rows: 40px calc(100% - 40px);
+
+
   &__nav {
     display: flex;
     gap: 1rem;
