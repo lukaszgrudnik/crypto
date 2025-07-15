@@ -6,7 +6,9 @@ export const App: React.FC = () => {
     return (
         <div data-cy={'app'} className={'app'}>
             <nav className={'app__nav'} data-cy={'app-nav'}>
-                <NavLink to={'/'}>Crypto</NavLink>
+                <NavLink className={'app__nav__title'} to={'/'}>
+                    Crypto
+                </NavLink>
                 <nav className={'app__nav__sub-nav'}>
                     <NavLink
                         to={'/market'}

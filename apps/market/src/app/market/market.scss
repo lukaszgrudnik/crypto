@@ -48,7 +48,10 @@
         box-shadow: 0 0 5px rgba(123, 114, 135, 0.75);
         border-radius: 1rem;
 
-        display: flex;
+        display: grid;
+        grid-template-areas: "logo logo . name price" "logo logo . . .";
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 30px 30px 10px 100px 100px;
         padding: 1rem;
 
         &:hover {
@@ -59,9 +62,34 @@
         }
 
         &__price {
+          grid-area: price;
+          font-size: .9rem;
+          margin: 0;
+          align-self: end;
+          justify-self: flex-end;
+
           &::before {
             content: "$";
           }
+        }
+
+        &__name {
+          grid-area: name;
+          font-size: 1rem;
+          width: 100px;
+          overflow: hidden;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+          margin: 0;
+          justify-self: start;
+          align-self: start;
+        }
+
+
+        &__logo {
+          grid-area: logo;
+          justify-self: center;
+          align-self: center;
         }
       }
     }
