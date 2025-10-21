@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // Enables all strict type-checking options in TypeScript
+    "strict": true,
+
+    // Requires imports and exports to be written exactly as they will be emitted
+    "verbatimModuleSyntax": true,
+
+    // Sets modern JSX transform for React 17+ ("react-jsx" automatically imports the JSX runtime)
+    "jsx": "react-jsx",
+
+    // Sets the module format to ES6 (ES2015) – uses import/export syntax
+    "module": "ESNext",
+
+    // Determines how modules are resolved; "bundler" allows flexible resolution and omitting extensions
+    "moduleResolution": "bundler",
+
+    // The JavaScript version to output; ES6 supports let/const, class, arrow functions, etc.
+    "target": "ES6",
+
+    // Includes built-in environment type definitions: "DOM" (document, window, fetch) and ES6 (Promise, Map, Set, etc.)
+    "lib": ["DOM", "ES6"],
+
+    // Ensures each file is treated as an isolated module – required for bundlers like esbuild / Rsbuild
+    "isolatedModules": true,
+
+    // Allows importing JSON files as modules with type support
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "serve:shell": "rsbuild dev -c ./apps/shell/rsbuild.config.ts",
+    "serve:market": "rsbuild dev -c ./apps/market/rsbuild.config.ts",
+    "serve:wallet": "rsbuild dev -c ./apps/wallet/rsbuild.config.ts",
+    "build:shell": "rsbuild build -c ./apps/shell/rsbuild.config.ts",
+    "build:market": "rsbuild build -c ./apps/market/rsbuild.config.ts",
+    "build:wallet": "rsbuild build -c ./apps/wallet/rsbuild.config.ts"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@module-federation/rsbuild-plugin": "^0.20.0",
+    "@rsbuild/core": "^1.5.17",
+    "@rsbuild/plugin-react": "^1.4.1",
+    "@rsbuild/plugin-sass": "^1.4.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "prettier": "^3.6.2"
+  }
+}
