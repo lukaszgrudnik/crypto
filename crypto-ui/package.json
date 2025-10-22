@@ -1,4 +1,5 @@
 {
+  "name": "crypto-ui",
   "scripts": {
     "serve:shell": "rsbuild dev -c ./apps/shell/rsbuild.config.ts",
     "serve:market": "rsbuild dev -c ./apps/market/rsbuild.config.ts",

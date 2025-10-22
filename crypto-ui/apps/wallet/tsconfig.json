@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["./@mf-types/*"]
+      "*": ["../../@mf-types/*"]
     }
-  }
+  },
 }

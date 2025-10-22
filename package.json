@@ -1,0 +1,16 @@
+{
+  "name": "crypto",
+  "private": true,
+  "workspaces": [
+    "crypto-ui",
+    "crypto-ws"
+  ],
+  "scripts": {
+    "build:shell": "npm run build:shell --workspace=crypto-ui",
+    "build:market": "npm run build:market --workspace=crypto-ui",
+    "build:wallet": "npm run build:wallet --workspace=crypto-ui",
+    "serve:shell": "npm run serve:shell --workspace=crypto-ui",
+    "serve:market": "npm run serve:market --workspace=crypto-ui",
+    "serve:wallet": "npm run serve:wallet --workspace=crypto-ui"
+  }
+}
