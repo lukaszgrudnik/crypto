@@ -1,0 +1,4 @@
+{
+  "private": true,
+  "workspaces": ["crypto-ui", "crypto-ws"]
+}

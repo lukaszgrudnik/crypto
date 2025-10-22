@@ -39,8 +39,8 @@ jobs:
 
       - name: Install dependencies 📦
         # Assuming you use npm. Change to `yarn install` or `pnpm install` if needed.
-        working-directory: ./crypto-ui
         run: npm ci
+
 
       - name: Run tests (Jest/Vitest/etc.) 🧪
         # This is the core step. Replace `npm test` with your actual test command
