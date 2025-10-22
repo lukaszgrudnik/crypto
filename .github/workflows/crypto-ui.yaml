@@ -1,0 +1,52 @@
+name: Crypto UI - Run Unit Tests
+# The name displayed on the GitHub Actions tab.
+
+run-name: ${{ github.actor }} is running tests on branch ${{ github.ref_name }}
+
+on:
+  # This workflow runs whenever code is pushed to any branch
+  # that is NOT the main/master branch (or any release branch).
+  push:
+    branches-ignore:
+      - 'main' # Exclude the main branch
+      - 'master' # Exclude the master branch
+      - 'release/**' # Exclude any release branches
+
+  # Also run when a Pull Request is opened, synchronized, or reopened,
+  # specifically targeting the main/master branch.
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+  run-tests:
+    # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
+
+    # Define a strategy to test across multiple Node.js versions (optional, but good practice)
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout repository code ⬇️
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }} 🟢
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm' # Use 'npm', 'yarn', or 'pnpm' depending on your lock file
+
+      - name: Install dependencies 📦
+        # Assuming you use npm. Change to `yarn install` or `pnpm install` if needed.
+        working-directory: ./crypto-ui
+        run: npm ci
+
+      - name: Run tests (Jest/Vitest/etc.) 🧪
+        # This is the core step. Replace `npm test` with your actual test command
+        # (e.g., `npm run test:ci` or `yarn test`).
+        working-directory: ./crypto-ui
+        run: jest
+
+      - run: echo "✅ Tests completed successfully for Node version ${{ matrix.node-version }}!"
+      - run: echo "This push/PR is now ready for review and possible merge."
