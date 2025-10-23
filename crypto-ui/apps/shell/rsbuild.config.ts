@@ -12,6 +12,11 @@ export default defineConfig({
       index: path.resolve(__dirname, 'src', 'index.tsx'),
     },
   },
+  output: {
+    distPath: {
+      root: path.resolve(__dirname, 'dist'),
+    },
+  },
   plugins: [
     pluginReact(),
     pluginSass(),

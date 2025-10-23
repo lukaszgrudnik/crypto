@@ -5,11 +5,8 @@
   "compilerOptions": {
     // Sets the base directory for resolving non-relative module names
     "baseUrl": ".",
-
-    // Allows you to define path aliases for module imports
     "paths": {
-      // Any import (e.g., import X from 'foo') will try to resolve to ./@mf-types/foo
-      "*": ["./@mf-types/*"]
+      "*": ["../../@mf-types/*"]
     }
-  }
+  },
 }
